@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Зарегистрироваться{% endblock %}
+{% block main %}
+  <div class="container py-5"> 
+    <div class="row justify-content-center">
+      <div class="col-md-8 p-5">
+        <div class="card">
+          {% with form_title='Зарегистрироваться' action_url='users:signup' button_name='Зарегистрироваться' is_password_reset=False %}
+            {% include 'users/includes/form.html' %}
+          {% endwith %}
+          <div class="card-body">
+            <div class="form-text text-muted">
+              <p>При создании аккаунта ознакомтесь с <a href="{% url 'about:tech' %}">правилами площадки</a></p>
+            </div>
+          </div>
+        </div> <!-- card -->
+      </div> <!-- col -->
+    </div> <!-- row -->
+  </div>
+{% endblock %}
