@@ -1,0 +1,64 @@
+<!--Запросы на переопределение ресурса-->
+###
+#  запрос на переопределение поста
+PUT http://127.0.0.1:8000/api/v1/posts/109/
+Content-Type: application/json
+Authorization: token d2d1a6ce1c5ecf8ba2e09a485857739c32a30be4
+
+{
+    "text": "testapipost4",
+    "author": "3"
+}
+###
+#  запрос на переопределение комментария
+PUT http://127.0.0.1:8000/api/v1/posts/109/comments/26/
+Content-Type: application/json
+Authorization: token d2d1a6ce1c5ecf8ba2e09a485857739c32a30be4
+
+{
+    "text": "testapicomment5",
+    "author": "3"
+}
+###
+#  запрос на переопределение группы(не разрешено)
+PUT http://127.0.0.1:8000/api/v1/groups/3/
+Content-Type: application/json
+Authorization: token d2d1a6ce1c5ecf8ba2e09a485857739c32a30be4
+
+{
+    "title": "testapipost4",
+    "description": "description"
+}
+
+
+<!--Запросы на изменение ресурса-->
+###
+#  запрос на изменение поста
+PATCH http://127.0.0.1:8000/api/v1/posts/109/
+Content-Type: application/json
+Authorization: token d2d1a6ce1c5ecf8ba2e09a485857739c32a30be4
+
+{
+    "text": "testapipost4",
+    "author": "3"
+}
+###
+#  запрос на изменение комментария
+PATCH http://127.0.0.1:8000/api/v1/posts/109/comments/26/
+Content-Type: application/json
+Authorization: token d2d1a6ce1c5ecf8ba2e09a485857739c32a30be4
+
+{
+    "text": "testapicomment5",
+    "author": "3"
+}
+###
+#  запрос на изменение группы(не разрешено)
+PATCH http://127.0.0.1:8000/api/v1/groups/3/
+Content-Type: application/json
+Authorization: token d2d1a6ce1c5ecf8ba2e09a485857739c32a30be4
+
+{
+    "title": "testapipost4",
+    "description": "description"
+}

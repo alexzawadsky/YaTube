@@ -1,25 +1,23 @@
 {% extends 'base.html' %}
 {% load thumbnail %}
 {% block title %}
-  Лента постов
+  Подписки
 {% endblock %}
 {% block main %}
-  {% include 'posts/includes/switcher.html' %}
-  <div class="container py-5">
-    <h1>Лента постов</h1>
-      {% if posts_exist %}
-        {% for post in page_obj %}
-          {% include 'posts/includes/post_list.html' %}
-          {% if post.group %}
-            <a href="{% url 'posts:group_number' post.group.pk %}">
-              все записи группы {{ post.group.title }}
-            </a>
-          {% endif %}
-          {% if not forloop.last %}<hr>{% endif %}
-        {% endfor %}
-      {% else %}
-        <h5>Вы не подписанны ни на одного автора ):</h5>
-      {% endif %}
+  <div class="container py-1">
+    <div class="row justify-content-center">
+      <div class="col-md-5 p-1">
+        {% include 'posts/includes/switcher.html' %}
+        {% if posts_exist %}
+          {% for post in page_obj %}
+            {% include 'posts/includes/post_list.html' %}
+            {% if not forloop.last %}<br>{% endif %}
+          {% endfor %}
+        {% else %}
+          <h5>Вы не подписанны ни на одного автора ):</h5>
+        {% endif %}
+      </div>
+      {% include 'posts/includes/paginator.html' %}
+    </div>
   </div>
-  {% include 'posts/includes/paginator.html' %}
 {% endblock main %}

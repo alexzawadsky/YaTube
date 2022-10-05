@@ -1,0 +1,13 @@
+<!--Запросы на удаление ресурса-->
+###
+#  запрос на удаление поста
+DELETE http://127.0.0.1:8000/api/v1/posts/109/
+Authorization: token d2d1a6ce1c5ecf8ba2e09a485857739c32a30be4
+###
+#  запрос на удаление группы
+DELETE http://127.0.0.1:8000/api/v1/groups/3/
+Authorization: token d2d1a6ce1c5ecf8ba2e09a485857739c32a30be4
+###
+#  запрос на удаление комментария
+DELETE http://127.0.0.1:8000/api/v1/posts/109/comments/26/
+Authorization: token d2d1a6ce1c5ecf8ba2e09a485857739c32a30be4

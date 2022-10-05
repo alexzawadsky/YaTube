@@ -1,21 +1,20 @@
 {% load thumbnail %}
 <article>
-  <ul>
-    <li>
-      Автор: {{ post.author.get_full_name }} 
-      <a href="{% url 'posts:profile' post.author %}">все посты пользователя</a>
-    </li>
-    <li>
-      Дата публикации: {{ post.pub_date|date:"d E Y" }}
-    </li>
-  </ul>
-  {% thumbnail post.image "1980x1980" crop="center" upscale=True as im %}
-    <img class="card-img my-2" src="{{ im.url }}">
-  {% endthumbnail %}
-  {% if post.image %}
-    <p>{{ post.text|truncatechars:visible_lines }}</p>
-  {% else %}
-  <p>{{ post.text }}</p>
-  {% endif %}
-  <a href="{% url 'posts:post_detail' post.pk %}">подробная информация</a>
+  <div class="card-header">
+      <a href="{% url 'posts:profile' post.author %}" class="link-secondary"><h5>{{ post.author.get_full_name }}</h5></a>
+  </div>
+  <div class="card" style="max-width: 600px;">
+    {% thumbnail post.image "1920x1920" crop="center" upscale=True as im %}
+      <img src="{{ im.url }}" class="card-img-top">
+    {% endthumbnail %}
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <p class=>{{ post.pub_date|date:"d E Y" }}</p>
+        </div>
+      </div>
+      <a href="{% url 'posts:post_detail' post.pk %}" class="stretched-link"></a>
+      <p class="card-text text-secondary">{{ post.text|truncatechars:visible_lines }}</p>
+    </div>
+  </div>
 </article> 

@@ -47,15 +47,8 @@
         </div>
       </div>
     {% endfor %}
-    <div class="col-md-6 offset-md-4">
-      <button type="submit" class="btn btn-primary">
+      <button type="submit" class="btn btn-dark">
         {{ button_name }}
       </button>
-      {% if is_password_reset %}
-        <a href="{% url 'users:password_reset_form' %}" class="btn btn-link">
-          Забыли пароль?
-        </a>
-      {% endif %}
-    </div>
   </form>
 </div>

@@ -1,8 +1,10 @@
 from core.models import CreatedModel
-from django.contrib.auth import get_user_model
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
-User = get_user_model()
+
+class User(AbstractUser):
+    pass
 
 
 class Post(CreatedModel):
@@ -11,7 +13,7 @@ class Post(CreatedModel):
         help_text='Введите текст поста',
     )
     author = models.ForeignKey(
-        User,
+        'User',
         on_delete=models.CASCADE,
         related_name='posts',
         verbose_name='Пользователь',
@@ -63,7 +65,7 @@ class Comment(CreatedModel):
         verbose_name='Пост',
     )
     author = models.ForeignKey(
-        User,
+        'User',
         on_delete=models.CASCADE,
         related_name='comments',
         verbose_name='Пользователь',
@@ -79,13 +81,13 @@ class Comment(CreatedModel):
 
 class Follow(models.Model):
     user = models.ForeignKey(
-        User,
+        'User',
         related_name='follower',
         on_delete=models.CASCADE,
         verbose_name='Подписавшийся пользователь',
     )
     author = models.ForeignKey(
-        User,
+        'User',
         related_name='following',
         on_delete=models.CASCADE,
         verbose_name='Пользователь на которого подписались',

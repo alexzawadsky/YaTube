@@ -1,32 +1,32 @@
 {% load user_filters %}
 {% if user.is_authenticated %}
-  <div class="card my-4">
-    <h5 class="card-header">Добавить комментарий:</h5>
-    <div class="card-body">
-      <form method="post" action="{% url 'posts:add_comment' post.id %}">
-        {% csrf_token %}      
-        <div class="form-group mb-2">
-          {{ form.text|addclass:"form-control" }}
-        </div>
-        <button type="submit" class="btn btn-primary">Отправить</button>
-      </form>
+  <div class="col-md-20 p-1">
+    <div class="card my-1">
+      <h5 class="card-header">Добавить комментарий:</h5>
+      <div class="card-body">
+        <form method="post" action="{% url 'posts:add_comment' post.id %}">
+          {% csrf_token %}      
+          <div class="form-group mb-1">
+            {{ form.text|addclass:"form-control" }}
+          </div>
+          <button type="submit" class="btn btn-dark">Отправить</button>
+        </form>
+      </div>
     </div>
-  </div>
-{% endif %}
-{% for comment in comments %}
-  <div class="media mb-4">
-    <div class="media-body">
-      <h5 class="mt-0">
-        <a href="{% url 'posts:profile' comment.author.username %}">
-          {{ comment.author.username }}
-        </a>
-      </h5>
-      <b>
-        {{ comment.pub_date }}
-      </b>
-      <p>
-        {{ comment.text }}
-      </p>
+  {% endif %}
+
+  {% for comment in comments %}
+    <div class="card my-3">
+      <div class="card" style="width: max-width: 600px;">
+        <div class="card-body">
+          <h5 class="card-title">{{ comment.author.username }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ comment.pub_date }}</h6>
+          <p class="card-text">{{ comment.text }}</p>
+          {% if user.id == comment.author.id %}
+            <a href="{% url 'posts:delete_comment' post.id comment.id %}" class="card-link link-danger">Удалить</a>
+          {% endif %}
+        </div>
+      </div>
     </div>
   </div>
 {% endfor %} 

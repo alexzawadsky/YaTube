@@ -1,0 +1,9 @@
+#  Запрос на получение токена
+#  d2d1a6ce1c5ecf8ba2e09a485857739c32a30be4  --alex--
+POST http://127.0.0.1:8000/api/v1/api-token-auth/
+Content-Type: application/json
+
+{
+    "username": "alex",
+    "password": "Alesha11ddqd"
+}

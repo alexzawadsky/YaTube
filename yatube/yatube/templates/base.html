@@ -10,6 +10,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{% static "img/fav/favicon-16x16.png" %}">
     <meta name="msapplication-TileColor" content="#000">
     <meta name="theme-color" content="#ffffff">
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <script type="text/javascript" src='js/bootstrap.min.js'></script>
     <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
     <title>
       {% block title %}
@@ -17,6 +19,51 @@
       {% endblock %}
     </title>
   </head>
+  <style>
+    .nav-pills > li > a.active {
+      background-color: #000000 !important;
+      color: #ffffff !important;
+    }
+
+    .nav-pills > li > a:hover {
+      color: #4C4C4C !important;
+    }
+    
+    .nav-link-color {
+      color: #000000 !important;
+    }
+
+    .pagination > li > a
+    {
+        background-color: white;
+        color: #000000;
+    }
+
+    .pagination > li > a:focus,
+    .pagination > li > a:hover,
+    .pagination > li > span:focus,
+    .pagination > li > span:hover
+    {
+        color: #000000;
+        background-color: #eee;
+        border-color: #000000;
+    }
+
+    .example .pagination>li>a,
+    .example .pagination>li>span {
+      border: 1px solid purple;
+    }
+    .pagination>li.active>a {
+      background: purple;
+      color: #fff;
+    }
+
+    .pagination > .active > a:hover
+    {
+        background-color: #000000 !Important;
+        border: solid 1px #000000;
+    }
+  </style>
   <body>
     {% include 'includes/header.html' %}
     {% block main %}

@@ -8,9 +8,9 @@
   {% endif %}
 {% endblock %}
 {% block main %}
-  <div class="container py-5">
+  <div class="container py-1">
     <div class="row justify-content-center">
-      <div class="col-md-8 p-5">
+      <div class="col-md-5 p-1">
         <div class="card">
           <div class="card-header">       
             {% if is_edit %}
@@ -46,7 +46,7 @@
                 </div>
               {% endfor %}
               <div class="d-flex justify-content-end">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-dark">
                   {% if is_edit %}
                     Добавить
                   {% else %}

@@ -145,6 +145,14 @@ def add_comment(request, post_id):
     return redirect('posts:post_detail', post_id=post_id)
 
 
+def delete_comment(request, post_id, comment_id):
+    post = get_object_or_404(Post, id=post_id)
+    comment = get_object_or_404(Comment, id=comment_id, post=post)
+    if request.user.id == comment.author.id:
+        comment.delete()
+    return redirect('posts:post_detail', post_id)
+
+
 def groups(request):
     template = 'posts/groups.html'
     groups = Group.objects.all()

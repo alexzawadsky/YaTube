@@ -1,0 +1,32 @@
+<!--Запросы на создание ресурса-->
+###
+#  запрос на создание нового поста
+POST http://127.0.0.1:8000/api/v1/posts/
+Content-Type: application/json
+Authorization: token d2d1a6ce1c5ecf8ba2e09a485857739c32a30be4
+
+{
+    "text": "testapipost",
+    "author": "3"
+}
+###
+#  запрос на создание нового комментария
+POST http://127.0.0.1:8000/api/v1/posts/109/comments/
+Content-Type: application/json
+Authorization: token d2d1a6ce1c5ecf8ba2e09a485857739c32a30be4
+
+{
+    "text": "testapicomment",
+    "post": 109,
+    "author": 3
+}
+###
+#  запрос на создание новой группы(не разрешено)
+POST http://127.0.0.1:8000/api/v1/posts/group/
+Content-Type: application/json
+Authorization: token d2d1a6ce1c5ecf8ba2e09a485857739c32a30be4
+
+{
+    "title": "testapigroup",
+    "description": "description"
+}
